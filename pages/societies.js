@@ -77,7 +77,7 @@ const Societies = ({ items }) => {
     )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const items = await fetchDataFromApi(`/api/societies?populate=*&pagination[page]=1&pagination[pageSize]=${maxResult}`);
 
     return {
