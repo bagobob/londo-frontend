@@ -6,7 +6,6 @@ import React from 'react'
 
 const SocietyDetail = ({ item }) => {
     const society = item?.data?.[0]?.attributes;
-    console.log(society);
     return (
         <>
             <Head>
