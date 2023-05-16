@@ -3,7 +3,8 @@ import Link from "next/link";
 
 const data = [
     { id: 1, name: "Acceuil", url: "/" },
-    { id: 4, name: "Contact", url: "/contact" },
+    { id: 2, name: "Societes", url: "/societies" },
+    { id: 3, name: "Contact", url: "/contact" },
 ];
 
 const MenuMobile = ({  setMobileMenu }) => {
