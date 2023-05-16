@@ -64,21 +64,33 @@ const SocietyDetail = ({ item }) => {
 export default SocietyDetail
 
 
-export async function getStaticPaths() {
-    const items = await fetchDataFromApi("/api/societies?populate=*");
-    const paths = items?.data?.map((p) => ({
-        params: {
-            slug: p.attributes.slug,
-        },
-    }));
+// export async function getStaticPaths() {
+//     const items = await fetchDataFromApi("/api/societies?populate=*");
+//     const paths = items?.data?.map((p) => ({
+//         params: {
+//             slug: p.attributes.slug,
+//         },
+//     }));
 
-    return {
-        paths,
-        fallback: false,
-    };
-}
+//     return {
+//         paths,
+//         fallback: false,
+//     };
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//     const item = await fetchDataFromApi(
+//         `/api/societies?populate=*&filters[slug][$eq]=${slug}`
+//     );
+
+//     return {
+//         props: {
+//             item,
+//         },
+//     };
+// }
+export async function getServerSideProps({ params }) {
+    const { slug } = params;
     const item = await fetchDataFromApi(
         `/api/societies?populate=*&filters[slug][$eq]=${slug}`
     );
